@@ -1,4 +1,13 @@
 trigger:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(846ff60a-1c94-4771-b2af-33670b97791f)'
+    appType: 'webAppLinux'
+    WebAppName: 'node-express-demo1'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|8.0'
+    StartupCommand: 'myapp'
 - master
 
 pool:
